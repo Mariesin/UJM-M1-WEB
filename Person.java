@@ -7,15 +7,19 @@ public class Person {
   private String address;
   private String email;
 
+  private String state;
 
-  public Person(String name, String firstname, String address, String email ) {
-         this.name = name; 
-         this.firstname = firstname; 
-         this.address = address; 
-         this.email = email;
 
-  } 
-  public void afficher() {
+    public Person(String name, String firstname, String address, String email, String state) {
+        this.name = name;
+        this.firstname = firstname;
+        this.address = address;
+        this.email = email;
+        this.state = state;
+}
+
+     public void afficher() {
+
       System.out.println("Name : "+name+" firstname : "+firstname+" address : "+address+" email : "+email);
     }
 
@@ -49,6 +53,13 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
 }
