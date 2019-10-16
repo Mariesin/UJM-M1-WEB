@@ -6,6 +6,7 @@ public class Person {
   private String firstname; 
   private String address;
   private String email;
+
   private String state;
 
 
@@ -18,6 +19,7 @@ public class Person {
 }
 
      public void afficher() {
+
       System.out.println("Name : "+name+" firstname : "+firstname+" address : "+address+" email : "+email);
     }
 
@@ -52,7 +54,6 @@ public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
-
     public String getState() {
         return state;
     }
