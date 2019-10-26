@@ -2,8 +2,12 @@ package projet.poopngo;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+//import static javax.persistence.GenerationType.AUTO;
+import static javax.persistence.GenerationType.SEQUENCE;
+
 import javax.persistence.Id;
 
 @Entity
@@ -98,7 +102,9 @@ public class Person {
     public void setPassword(String password) {
         this.password = password;
     }
-
+    public Person(){
+        
+    }
     public Person(String name, String firstname, Date birthday, String login, String address, Integer phone,
             String email, String password) {
         this.name = name;
@@ -112,7 +118,8 @@ public class Person {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=SEQUENCE, generator="CUST_SEQ")
+    @Column(name="CUST_ID")
     public Long getId() {
         return id;
     }

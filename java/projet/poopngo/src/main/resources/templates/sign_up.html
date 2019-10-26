@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -47,33 +47,39 @@
   </header>
 <body>
     <h1 align=center>Sign up</h1>
-  <form name=inscript action= method=get>
+  <form th:object="${pers}" th:action="@{/session}" th:method="POST">
     <table align=center>
       <tbody>
       <tr>
         <td align=right>Name</td>
-        <td><input size=40 name=Name></td></tr>
+        <td><input type='text' size="40" th:field="*{name}"></td>
+      </tr>
       <tr>
         <td align=right>Firstname</td>
-        <td><input size=40 name=Firstname></td></tr>
+        <td><input type='text' size="40" th:field="*{firstname}"></td>
+      </tr>
+        <td align=right>Birthday</td>
+        <td><input type='text' size="40" th:field="*{birthday}"></td>
       <tr>
-    <tr>
         <td align=right>Login</td>
-        <td><input size=40 name=Login></td></tr>
+        <td><input type='text' size="40" th:field="*{login}"></td>
+      </tr>
       <tr>
         <td align=right>Address</td>
-        <td><input size=40 name=Address></td></tr>
+        <td><input type='text' size="40" th:field="*{address}"></td>
+      </tr>
       <tr>
         <td align=right>Phone number</td>
-        <td><input size=40 name=PhoneNumber></td></tr>
+        <td><input type='number' size="40" th:field="*{phone}"></td>
+      </tr>
       <tr>
         <td align=right>Email</td>
-        <td><input size=40 name=email></td>
+        <td><input type='text' size="40" th:field="*{email}"></td>
       </tr>
       <tr>
         <td align=right>Password</td>
-        <td><input size=40 name=Password></td></tr>
-      <tr>
+        <td><input type='password' size="40" th:field="*{password}"></td>
+      </tr>
     </tbody>
    </table>
    <center><input class="loginbut" value="sign up" type="submit"/></center>

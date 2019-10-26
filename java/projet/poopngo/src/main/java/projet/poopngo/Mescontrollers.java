@@ -2,13 +2,21 @@ package projet.poopngo;
 
 //import java.sql.Date;
 
+//import java.sql.Date;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class Mescontrollers {
-   //private PersonRepository perso;
+
+    @Autowired
+    private PersonRepository perso;
 
     @RequestMapping("/")
     public String accueil(){
@@ -21,7 +29,8 @@ public class Mescontrollers {
     }
 
     @RequestMapping("/sign_up")
-    public String signup(){
+    public String signup(Model model){
+        model.addAttribute("pers", new Person());
         return "sign_up";
     }
 
@@ -30,20 +39,20 @@ public class Mescontrollers {
         return "accueil";
     }
 
-   /* @RequestMapping("/session")
-    public String session(
-        @RequestParam String name,
+    @RequestMapping(value = "/session", method = POST)
+    public String session( Person p
+        /*@RequestParam String name,
         @RequestParam String firstname,
         @RequestParam Date birthday,
         @RequestParam String login,
         @RequestParam String address,
         @RequestParam Integer phone,
         @RequestParam String email,
-        @RequestParam String password
+        @RequestParam String password*/
     ){
-        Person p = new Person(name, firstname, birthday, login, address, phone, email, password);
+        //Person p = new Person(name, firstname, birthday, login, address, phone, email, password);
         perso.save(p);
-        return "session";
-    }*/
+        return "redirect:/";
+    }
 
 }
