@@ -47,19 +47,19 @@
   </header>
 <center>
       <h1 align=center>Log In</h1>
-  <form name=inscript action= method=get>
+  <form data-th-action="@{/log}" th:method="POST">
 
     <table align=center>
       <tbody>
       <tr>
         <td align=right>Login</td>
-        <td><input size=40 name=Name></td></tr>
+        <td><input type="text" size=40 name=login></td></tr>
       <tr>
         <td align=right>Email</td>
-        <td><input size=40 name=email></td></tr>
+        <td><input type="text" size=40 name=email></td></tr>
       <tr>
         <td align=right>Password</td>
-        <td><input size=40 name=Password></td>
+        <td><input type="password" size=40 name=password></td>
       </tr>
 
     </tbody>

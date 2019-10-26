@@ -7,10 +7,19 @@ package projet.poopngo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+//import antlr.collections.List;
+
 //import org.springframework.web.bind.annotation.RequestParam;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.data.jpa.repository.Query;
+//import org.springframework.data.repository.query.Param;
+
 
 @Controller
 public class Mescontrollers {
@@ -24,7 +33,10 @@ public class Mescontrollers {
     }
 
     @RequestMapping("/log_in")
-    public String login(){
+    public String login(Model model){
+        model.addAttribute("login", "");
+        model.addAttribute("email", "");
+        model.addAttribute("password", "");
         return "log_in";
     }
 
@@ -39,17 +51,19 @@ public class Mescontrollers {
         return "accueil";
     }
 
-    @RequestMapping(value = "/session", method = POST)
-    public String session( Person p
-        /*@RequestParam String name,
-        @RequestParam String firstname,
-        @RequestParam Date birthday,
-        @RequestParam String login,
-        @RequestParam String address,
-        @RequestParam Integer phone,
+    @RequestMapping(value = "/log", method = POST)
+    public String log(@RequestParam String login,
         @RequestParam String email,
-        @RequestParam String password*/
+        @RequestParam String password
     ){
+        List<Long> id = perso.findByLogin(login,email,password);
+        if(id.get(0) != null){
+            return "redirect:/";
+        }
+        return "redirect:/log_in";
+    }
+    @RequestMapping(value = "/session", method = POST)
+    public String session(Person p){
         //Person p = new Person(name, firstname, birthday, login, address, phone, email, password);
         perso.save(p);
         return "redirect:/";
