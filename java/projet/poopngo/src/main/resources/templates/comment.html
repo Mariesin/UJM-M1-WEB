@@ -1,0 +1,26 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<!--g-->
+  <form th:object="${comment}" th:action="@{/add/comment}" method="POST">
+   
+    	<div>
+       <span>Target</span>
+          <input type='text' name="target"  />
+        </div>
+      
+      <div>
+        <span>Text</span>
+        <input type='text' name="text"/>
+      </div>
+  
+     
+ 
+   <input class="loginbut" value="sign up" type="submit"/>
+  </form>
+
+</body>
+</html>
