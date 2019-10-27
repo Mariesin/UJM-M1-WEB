@@ -1,13 +1,13 @@
 package projet.poopngo;
 
-import java.util.List;
+//import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -21,7 +21,7 @@ public class CommentController {
 	@GetMapping(path = "/comment")
     public String home(){
 		//list of target
-		List<Person> list = (List<Person>) personeService.findAll();
+//		List<Person> list = (List<Person>) personeService.findAll();
         return "comment";
     }
 //add comment 
