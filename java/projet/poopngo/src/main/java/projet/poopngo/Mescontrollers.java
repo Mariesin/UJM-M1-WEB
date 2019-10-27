@@ -69,4 +69,9 @@ public class Mescontrollers {
         return "redirect:/";
     }
 
+    @RequestMapping("/map")
+    public String map(){
+        return "map";
+    }
+
 }
