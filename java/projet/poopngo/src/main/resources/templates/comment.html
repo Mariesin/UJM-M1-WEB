@@ -46,16 +46,17 @@
   </div>
   <div class="form-group">
     <label> selectionnez svp </label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>.</option>
-     
+    <select multiple class="form-control" id="exampleFormControlSelect2" name="target">
+     	 
+     <option th:each="person :${persones}" th:value="${person.id}" th:text="${person.name}">  </option>
     </select>
   </div>
  
   <br><br>
               <div class="col-md-12">
                 <div class="form-group">
-                  <textarea class="form-control" id="message" placeholder="Your Opinion *" required="required" data-validation-required-message="Please enter opinion."></textarea>
+                  <textarea name="text" class="form-control" id="message" placeholder="Your Opinion *"
+                   required="required" data-validation-required-message="Please enter opinion."></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -84,23 +85,6 @@
 
 
 
-  <!--  
-
-  <form th:object="${comment}" th:action="@{/add/comment}" method="POST">
-   
-    	<div>
-       <span>Target</span>
-<TEXTAREA name="text" rows=4 cols=40>Valeur par défaut</TEXTAREA>        </div>
-      
-      <div>
-        <span>Text</span>
-        <input type='text' name="text"/>
-      </div>
   
-     
- 
-   <input class="loginbut" value="valider" type="submit"/>
-  </form>
--->
 </body>
 </html>
