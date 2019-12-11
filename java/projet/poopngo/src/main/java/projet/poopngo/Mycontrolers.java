@@ -15,7 +15,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
-public class Mescontrollers {
+public class Mycontrolers {
     @Inject
     PersonService personService;
 
