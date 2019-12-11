@@ -8,7 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+//import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class CommentController {
@@ -18,18 +18,18 @@ public class CommentController {
 	@Autowired
 	private PersonRepository personeService;
 	
-	@RestController
+	/*@RestController
 	public class PersonController {
 
 	    @Autowired
 	    PersonService personService;
 //get all persons
 	    @GetMapping("/persons")
-	    private List<Person> getAllPersons() {
-	        return personService.getAllPersons();
+	   // private List<Person> getAllPersons() {
+	        //return personService.getAllPersons();
 	        
 	    }
-	}
+	}*/
 	
 	
 	@GetMapping(path = "/comment")
@@ -43,13 +43,13 @@ public class CommentController {
 	@PostMapping(path = "/add/comment")
     public String addComment(@RequestParam String text,@RequestParam Long target){
 
-		Person p =personeService.findById(target).get();
-		String name =p.getFirstname()+" "+ p.getName();
+		//Person p =personeService.findById(target).get();
+		//String name =p.getFirstname()+" "+ p.getName();
 		Comment c = new Comment();
 		c.setId_source(1L);
 		c.setId_target(target);
 		c.setText(text);
-		c.setName_target(name);
+		//c.setName_target(name);
 		service.save(c);
         return "comment";
     }
