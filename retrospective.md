@@ -7,7 +7,8 @@ Ce qui a fonctionné :
 Ce qui n'a pas fonctionné :
 - Afficher en dynamique les balises des produits disponible sur une map
 - Le paiement
-- Afficher un aperçu du produit.
+- Afficher un aperçu du produit
+- La partie vue js.
 
 Ce qu'on a appris:
 - L'utilisation du framework Spring Boot avec Thymeleaf.
