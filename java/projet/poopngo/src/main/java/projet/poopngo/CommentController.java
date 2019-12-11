@@ -1,7 +1,7 @@
 package projet.poopngo;
 
-import java.util.List;
-import java.util.Optional;
+//import java.util.List;
+//import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +14,8 @@ public class CommentController {
 
 	@Autowired
 	private CommentRepository service;
-	@Autowired
-	private PersonRepository personeService;
+	//@Autowired
+	//private PersonRepository personeService;
 
 	@RestController
 	public class PersonController {
@@ -23,11 +23,11 @@ public class CommentController {
 	    @Autowired
 	    PersonService personService;
 
-	    @GetMapping("/persons")
+	    /*@GetMapping("/persons")
 	    private List<Person> getAllPersons() {
-	        return personService.getAllPersons();
+	       return personService.getAllPersons();
 
-	    }
+	    }*/
 	}
 
 
@@ -41,11 +41,12 @@ public class CommentController {
 	@PostMapping(path = "/add/comment")
     public String addComment(@RequestParam String text,@RequestParam Long target){
 		//target id : id de persone a commenter liste derou
-		Optional<Person> p = personeService.findById(target);
+		//Optional<Person> p = personeService.findById(target);
 		//recuperer la personne
-		Person t = p.get();
+		
+		//Person t = p.get();
 		Comment m= new Comment();
-		m.setTarget(t);
+		//m.setTarget(t);
 		m.setText(text);
 		//m.setSource();
 		//m.seTarget();

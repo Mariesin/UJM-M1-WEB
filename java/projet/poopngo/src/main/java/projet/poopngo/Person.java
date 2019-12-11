@@ -1,6 +1,69 @@
 package projet.poopngo;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
 import java.sql.Date;
+import lombok.Data;
+
+@Entity
+@Data
+public class Person {
+    
+    @Id
+    String userName;
+    
+    String login;
+    
+
+    String derivedPassword;
+
+
+  /*private Long id;*/
+  //private String name; 
+  private String firstname;
+  private Date birthday; 
+  //private String login;
+  private String address;
+  private Integer phone;
+  private String email;
+  //private String password;
+  private String state;
+    
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    private Set<PersonRole> roles = new HashSet<>();
+    
+    public Person() {
+    }
+
+    public Person(String userName) {
+        this.userName = userName;
+        this.login = userName;
+        this.roles.add(PersonRole.USER); // be a user by default
+        this.derivedPassword = null;
+    }
+    
+    public Person(String userName, String login, List<String> roles, String derivedPassword,String email) {
+        this.userName = userName;
+        this.login = login;
+        this.email = email;
+        this.roles.addAll(roles.stream().map(PersonRole::valueOf).collect(Collectors.toList()));
+        this.derivedPassword = derivedPassword;
+    }
+ 
+    
+}
+
+/*import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -128,4 +191,4 @@ public class Person {
         this.id = id;
     }
 
-}
+}*/

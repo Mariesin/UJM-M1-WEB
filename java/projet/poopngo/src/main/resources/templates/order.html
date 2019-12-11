@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
 
@@ -33,6 +33,7 @@
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Log you to choose a toilet!</a>
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="homepage">Homepage </a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" color="${color}" href="logout">Log out </a>
     </div>
   </nav>
 
@@ -45,50 +46,34 @@
       </div>
     </div>
   </header>
-<body>
-    <h1 align=center>Sign up</h1>
-  <form th:object="${pers}" th:action="@{/session}" th:method="POST">
-    <table align=center>
-      <tbody>
-      <tr>
-        <td align=right>Name</td>
-        <!--<td><input type='text' size="40" th:field="*{name}"></td>-->
-        <td><input type='text' size="40" th:field="*{login}"></td>
-      </tr>
-      <tr>
-        <td align=right>Firstname</td>
-        <td><input type='text' size="40" th:field="*{firstname}"></td>
-      </tr>
-      <tr>
-        <td align=right>Birthday</td>
-        <td><input type='text' size="40" th:field="*{birthday}"></td>
-      </tr>
-      <tr>
-        <td align=right>Login</td>
-        <!--<td><input type='text' size="40" th:field="*{login}"></td>-->
-        <td><input type='text' size="40" th:field="*{userName}"></td>
-      </tr>
-      <tr>
-        <td align=right>Address</td>
-        <td><input type='text' size="40" th:field="*{address}"></td>
-      </tr>
-      <tr>
-        <td align=right>Phone number</td>
-        <td><input type='number' size="40" th:field="*{phone}"></td>
-      </tr>
-      <tr>
-        <td align=right>Email</td>
-        <td><input type='text' size="40" th:field="*{email}"></td>
-      </tr>
-      <tr>
-        <td align=right>Password</td>
-        <!--<td><input type='password' size="40" th:field="*{password}"></td>-->
-        <td><input type='password' size="40" th:field="*{derivedPassword}"></td>
-      </tr>
-    </tbody>
-   </table>
-   <center><input class="loginbut" value="sign up" type="submit"/></center>
-  </form>
+<center>
+  <h1 align=center>Order</h1>
+  <div>
+    <h2 align=center>Received order</h2>
+    <tr th:each="o : ${lorder}" >
+      <td  th:text="${o.client}"></td>
+      <td th:text="${o.time}"></td>
+    </tr>
+    <h2 align=center>Sent order</h2>
+    <tr  th:each="o : ${myOrder}">
+        <td  th:text="${o.host}"></td>
+        <td th:text="${o.address}"></td>
+        <td th:text="${o.time}"></td>
+    </tr>
+    <h2 align=center>New order</h2>
+    <form th:object="${newO}" th:action="@{/addOrder}" th:method="POST">
+      User : <input type='text' th:field="*{host}">
+      <br>
+      Time : <input type='text' th:field="*{time}">
+      <br>
+      <input type='submit' value="ADD">
+    </form>
+    <h2 align=center>State</h2>
+    <p th:text="${state}"></p>
+    <form th:action="@{/newState}">
+      <input type='submit' value="change state"> 
+    </form>
+  </div>
 <!-- Footer -->
   <footer class="footer">
     <div class="container">
