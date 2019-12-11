@@ -1,58 +1,67 @@
 package projet.poopngo;
-
-//import javax.persistence.Column;
 import javax.persistence.Entity;
-//import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-//import javax.persistence.Table;
+
 
 @Entity
 
 public class Comment{
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@ManyToOne
-	
-    private Person source;
+    private Long id_source;
     
-	@ManyToOne
-    private Person target;
+    private Long id_target;
     
     private String text;
+    public String getName_target() {
+		return name_target;
+	}
 
-    public Person getSource() {
-        return source;
-    }
+	public void setName_target(String name_target) {
+		this.name_target = name_target;
+	}
 
-    public void setSource(Person source) {
-        this.source = source;
-    }
+	private String name_target;
 
-    public Person getTarget() {
-        return target;
-    }
+	public Long getId_source() {
+		return id_source;
+	}
 
-    public void setTarget(Person target) {
-        this.target = target;
-    }
+	public void setId_source(Long id_source) {
+		this.id_source = id_source;
+	}
 
-    public String getText() {
-        return text;
-    }
+	public Long getId_target() {
+		return id_target;
+	}
 
-    public void setText(String text) {
-        this.text = text;
-    }
+	public void setId_target(Long id_target) {
+		this.id_target = id_target;
+	}
 
-    public Comment(Person source, Person target, String text) {
-        this.source = source;
-        this.target = target;
-        this.text = text;
-    }
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public Comment(Long id_source, Long id_target, String text) {
+		super();
+		this.id_source = id_source;
+		this.id_target = id_target;
+		this.text = text;
+	}
+
     public Comment() {
-    	
-    }
+	}
 }
+
+

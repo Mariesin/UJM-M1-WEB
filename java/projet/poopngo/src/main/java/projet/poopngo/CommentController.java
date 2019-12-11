@@ -1,9 +1,10 @@
 package projet.poopngo;
 
-//import java.util.List;
-//import java.util.Optional;
+import java.util.List;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,45 +15,43 @@ public class CommentController {
 
 	@Autowired
 	private CommentRepository service;
-	//@Autowired
-	//private PersonRepository personeService;
-
+	@Autowired
+	private PersonRepository personeService;
+	
 	@RestController
 	public class PersonController {
 
 	    @Autowired
 	    PersonService personService;
-
-	    /*@GetMapping("/persons")
+//get all persons
+	    @GetMapping("/persons")
 	    private List<Person> getAllPersons() {
-	       return personService.getAllPersons();
-
-	    }*/
+	        return personService.getAllPersons();
+	        
+	    }
 	}
-
-
+	
+	
 	@GetMapping(path = "/comment")
-    public String home(){
-		//list of person
-		//List<Person> list = (List<Person>) personeService.findAll();
+    public String home(ModelMap model){
+		List<Person> list = (List<Person>) personeService.findAll();
+		model.addAttribute("persones",list);
         return "comment";
     }
-//add comment
+//add comment 
+	@Transactional
 	@PostMapping(path = "/add/comment")
     public String addComment(@RequestParam String text,@RequestParam Long target){
-		//target id : id de persone a commenter liste derou
-		//Optional<Person> p = personeService.findById(target);
-		//recuperer la personne
-		
-		//Person t = p.get();
-		Comment m= new Comment();
-		//m.setTarget(t);
-		m.setText(text);
-		//m.setSource();
-		//m.seTarget();
 
-		service.save(m);
-
+		Person p =personeService.findById(target).get();
+		String name =p.getFirstname()+" "+ p.getName();
+		Comment c = new Comment();
+		c.setId_source(1L);
+		c.setId_target(target);
+		c.setText(text);
+		c.setName_target(name);
+		service.save(c);
         return "comment";
     }
 }
+
