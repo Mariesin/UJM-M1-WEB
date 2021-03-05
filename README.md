@@ -1,6 +1,6 @@
 Projet Poop'n'Go par Marie Sinama, Lucas Jouvet, Fares Dabec, Gauthier Clement.
 
-Poop'n'Go est un projet né de la volonté commune de 3 des membres du groupe, Marie, Lucas et Gauthier, de pouvoir utiliser des toilettes propres, intimes, et atypiques, et ça au beau milieu de la rue, sans avoir à utiliser des toilettes publiques. Il a donc été décidé de créer une application web permettant de réserver des toilettes chez des particuliers proches, moyennant une rémunération, afin d'assurer le bon déroulement de l'échange ainsi que la fiabilité du produit (ici, des toielttes).
+Poop'n'Go est un projet né de la volonté commune de 3 des membres du groupe, Marie, Lucas et Gauthier,Fares de pouvoir utiliser des toilettes propres, intimes, et atypiques, et ça au beau milieu de la rue, sans avoir à utiliser des toilettes publiques. Il a donc été décidé de créer une application web permettant de réserver des toilettes chez des particuliers proches, moyennant une rémunération, afin d'assurer le bon déroulement de l'échange ainsi que la fiabilité du produit (ici, des toielttes).
 Fares, qui nous a rejoint en cours de développement, a tout de suite adhéré au projet et a su s'adapter au rythme de travail très soutenu.
 
     
